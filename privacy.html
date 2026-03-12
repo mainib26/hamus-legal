@@ -4,11 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy - Hamus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #111827; line-height: 1.7; background: #FAFAFA; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans Ethiopic', sans-serif; color: #111827; line-height: 1.7; background: #FAFAFA; }
     .container { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
-    .brand { color: #0D9488; font-size: 28px; font-weight: 700; margin-bottom: 4px; }
+    .top-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+    .brand { color: #0D9488; font-size: 28px; font-weight: 700; text-decoration: none; }
+    .lang-switcher { display: flex; gap: 6px; }
+    .lang-btn { padding: 4px 14px; border: 1px solid #D1D5DB; border-radius: 20px; background: white; color: #374151; font-size: 13px; font-family: inherit; cursor: pointer; transition: all 0.2s; }
+    .lang-btn:hover { border-color: #0D9488; color: #0D9488; }
+    .lang-btn.active { background: #0D9488; color: white; border-color: #0D9488; }
+    .lang-content { display: none; }
+    .lang-content.active { display: block; }
     h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
     .updated { color: #6B7280; font-size: 14px; margin-bottom: 32px; }
     h2 { font-size: 20px; font-weight: 600; margin-top: 32px; margin-bottom: 12px; color: #0F766E; }
@@ -19,64 +29,213 @@
 </head>
 <body>
   <div class="container">
-    <div class="brand">Hamus</div>
-    <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: February 25, 2026</p>
+    <div class="top-bar">
+      <a href="/" class="brand">Hamus</a>
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="switchLang('en')">English</button>
+        <button class="lang-btn" onclick="switchLang('am')">አማርኛ</button>
+        <button class="lang-btn" onclick="switchLang('ti')">ትግርኛ</button>
+      </div>
+    </div>
 
-    <p>Hamus ("we," "our," or "us") operates the Hamus mobile application (the "App"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use the App.</p>
+    <!-- ENGLISH -->
+    <div id="content-en" class="lang-content active" lang="en">
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: February 25, 2026</p>
 
-    <h2>1. Information We Collect</h2>
-    <p><strong>Account Information:</strong> When you create an account, we collect your name, email address, and password. You may optionally provide a phone number, profile photo, bio, location, and social media links.</p>
-    <p><strong>Listing Content:</strong> When you create marketplace listings, we collect the photos, descriptions, prices, and location information you provide.</p>
-    <p><strong>Messages:</strong> We store messages you send to other users through the App's messaging feature to deliver them to the intended recipients.</p>
-    <p><strong>Device Information:</strong> We may collect push notification tokens, device type, and operating system version to deliver notifications and improve the App.</p>
-    <p><strong>Location Data:</strong> With your permission, we collect your approximate location to show nearby listings. You can disable location access in your device settings at any time.</p>
+      <p>Hamus ("we," "our," or "us") operates the Hamus mobile application (the "App"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use the App.</p>
 
-    <h2>2. How We Use Your Information</h2>
-    <ul>
-      <li>To create and manage your account</li>
-      <li>To display your marketplace listings to other users</li>
-      <li>To facilitate messaging between buyers and sellers</li>
-      <li>To process payments between users via Stripe</li>
-      <li>To send push notifications about messages, likes, and activity</li>
-      <li>To show relevant, nearby listings based on your location</li>
-      <li>To enforce our Terms of Service and prevent fraud</li>
-    </ul>
+      <h2>1. Information We Collect</h2>
+      <p><strong>Account Information:</strong> When you create an account, we collect your name, email address, and password. You may optionally provide a phone number, profile photo, bio, location, and social media links.</p>
+      <p><strong>Listing Content:</strong> When you create marketplace listings, we collect the photos, descriptions, prices, and location information you provide.</p>
+      <p><strong>Messages:</strong> We store messages you send to other users through the App's messaging feature to deliver them to the intended recipients.</p>
+      <p><strong>Device Information:</strong> We may collect push notification tokens, device type, and operating system version to deliver notifications and improve the App.</p>
+      <p><strong>Location Data:</strong> With your permission, we collect your approximate location to show nearby listings. You can disable location access in your device settings at any time.</p>
 
-    <h2>3. Third-Party Services</h2>
-    <p>We use the following third-party services to operate the App:</p>
-    <ul>
-      <li><strong>Supabase:</strong> Database hosting, authentication, and file storage (hosted in the United States)</li>
-      <li><strong>Stripe:</strong> Payment processing for marketplace transactions. Stripe's privacy policy is available at <a href="https://stripe.com/privacy">stripe.com/privacy</a></li>
-      <li><strong>Expo:</strong> App delivery and over-the-air updates</li>
-    </ul>
-    <p>We do not sell your personal information to third parties.</p>
+      <h2>2. How We Use Your Information</h2>
+      <ul>
+        <li>To create and manage your account</li>
+        <li>To display your marketplace listings to other users</li>
+        <li>To facilitate messaging between buyers and sellers</li>
+        <li>To process payments between users via Stripe</li>
+        <li>To send push notifications about messages, likes, and activity</li>
+        <li>To show relevant, nearby listings based on your location</li>
+        <li>To enforce our Terms of Service and prevent fraud</li>
+      </ul>
 
-    <h2>4. Data Retention</h2>
-    <p>We retain your account information and content for as long as your account is active. When you delete your account, we anonymize your profile data and remove your listings. Some data may be retained as required by law or for legitimate business purposes (e.g., transaction records).</p>
+      <h2>3. Third-Party Services</h2>
+      <p>We use the following third-party services to operate the App:</p>
+      <ul>
+        <li><strong>Supabase:</strong> Database hosting, authentication, and file storage (hosted in the United States)</li>
+        <li><strong>Stripe:</strong> Payment processing for marketplace transactions. Stripe's privacy policy is available at <a href="https://stripe.com/privacy">stripe.com/privacy</a></li>
+        <li><strong>Expo:</strong> App delivery and over-the-air updates</li>
+      </ul>
+      <p>We do not sell your personal information to third parties.</p>
 
-    <h2>5. Your Rights</h2>
-    <p>You have the right to:</p>
-    <ul>
-      <li><strong>Access</strong> your personal data through the App's profile settings</li>
-      <li><strong>Update</strong> your information at any time in your profile</li>
-      <li><strong>Delete</strong> your account and associated data through the App's settings</li>
-      <li><strong>Opt out</strong> of push notifications through your device settings</li>
-      <li><strong>Revoke</strong> location permissions through your device settings</li>
-    </ul>
+      <h2>4. Data Retention</h2>
+      <p>We retain your account information and content for as long as your account is active. When you delete your account, we anonymize your profile data and remove your listings. Some data may be retained as required by law or for legitimate business purposes (e.g., transaction records).</p>
 
-    <h2>6. Data Security</h2>
-    <p>We use industry-standard security measures including encrypted data transmission (TLS/SSL), secure authentication, and access controls. However, no method of electronic transmission or storage is 100% secure.</p>
+      <h2>5. Your Rights</h2>
+      <p>You have the right to:</p>
+      <ul>
+        <li><strong>Access</strong> your personal data through the App's profile settings</li>
+        <li><strong>Update</strong> your information at any time in your profile</li>
+        <li><strong>Delete</strong> your account and associated data through the App's settings</li>
+        <li><strong>Opt out</strong> of push notifications through your device settings</li>
+        <li><strong>Revoke</strong> location permissions through your device settings</li>
+      </ul>
 
-    <h2>7. Children's Privacy</h2>
-    <p>The App is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If we discover we have collected information from a child under 13, we will delete it promptly.</p>
+      <h2>6. Data Security</h2>
+      <p>We use industry-standard security measures including encrypted data transmission (TLS/SSL), secure authentication, and access controls. However, no method of electronic transmission or storage is 100% secure.</p>
 
-    <h2>8. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. We will notify you of material changes through the App or by email. Your continued use of the App after changes constitutes acceptance of the updated policy.</p>
+      <h2>7. Children's Privacy</h2>
+      <p>The App is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If we discover we have collected information from a child under 13, we will delete it promptly.</p>
 
-    <h2>9. Contact Us</h2>
-    <p>If you have questions about this Privacy Policy or your data, contact us at:</p>
-    <p><strong>Email:</strong> <a href="mailto:support@hamusmarket.com">support@hamusmarket.com</a></p>
+      <h2>8. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will notify you of material changes through the App or by email. Your continued use of the App after changes constitutes acceptance of the updated policy.</p>
+
+      <h2>9. Contact Us</h2>
+      <p>If you have questions about this Privacy Policy or your data, contact us at:</p>
+      <p><strong>Email:</strong> <a href="mailto:support@hamusmarket.com">support@hamusmarket.com</a></p>
+    </div>
+
+    <!-- AMHARIC -->
+    <div id="content-am" class="lang-content" lang="am">
+      <h1>የግላዊነት ፖሊሲ</h1>
+      <p class="updated">መጨረሻ የተሻሻለው: የካቲት 25, 2026</p>
+
+      <p>ሐሙስ ("እኛ" ወይም "የኛ") የሐሙስ ሞባይል መተግበሪያውን ("መተግበሪያ") ያስተዳድራል። ይህ የግላዊነት ፖሊሲ መተግበሪያውን ሲጠቀሙ መረጃዎን እንዴት እንደምንሰበስብ፣ እንደምንጠቀም፣ እንደምናሳውቅ እና እንደምንጠብቅ ያብራራል።</p>
+
+      <h2>1. የምንሰበስባቸው መረጃዎች</h2>
+      <p><strong>የመለያ መረጃ:</strong> መለያ ሲፈጥሩ ስምዎን፣ ኢሜይል አድራሻዎን እና የይለፍ ቃልዎን እንሰበስባለን። እንዲሁም ስልክ ቁጥር፣ የመገለጫ ፎቶ፣ ስለ እርስዎ፣ አካባቢ እና የማህበራዊ ሚዲያ ሊንኮች ሊያቀርቡ ይችላሉ።</p>
+      <p><strong>የልጥፍ ይዘት:</strong> የገበያ ልጥፎች ሲፈጥሩ ያቀረቡትን ፎቶዎች፣ መግለጫዎች፣ ዋጋዎች እና የአካባቢ መረጃ እንሰበስባለን።</p>
+      <p><strong>መልዕክቶች:</strong> በመተግበሪያው የመልዕክት ባህሪ በኩል ለሌሎች ተጠቃሚዎች የሚልኳቸውን መልዕክቶች ለታሰቡት ተቀባዮች ለማድረስ እናከማቻለን።</p>
+      <p><strong>የመሣሪያ መረጃ:</strong> ማሳወቂያዎችን ለማድረስና መተግበሪያውን ለማሻሻል የፑሽ ማሳወቂያ ቶከኖች፣ የመሣሪያ ዓይነት እና የኦፐሬቲንግ ሲስተም ስሪት ልንሰበስብ እንችላለን።</p>
+      <p><strong>የአካባቢ ውሂብ:</strong> በፈቃድዎ ቅርብ ልጥፎችን ለማሳየት ግምታዊ አካባቢዎን እንሰበስባለን። በማንኛውም ጊዜ በመሣሪያዎ ቅንብሮች ውስጥ የአካባቢ ፈቃድ ማጥፋት ይችላሉ።</p>
+
+      <h2>2. መረጃዎን እንዴት እንጠቀማለን</h2>
+      <ul>
+        <li>መለያዎን ለመፍጠርና ለማስተዳደር</li>
+        <li>የገበያ ልጥፎችዎን ለሌሎች ተጠቃሚዎች ለማሳየት</li>
+        <li>በገዢዎችና ሻጮች መካከል መልዕክት ልውውጥ ለማመቻቸት</li>
+        <li>በተጠቃሚዎች መካከል ክፍያዎችን በ Stripe በኩል ለማስኬድ</li>
+        <li>ስለ መልዕክቶች፣ ልጥፎች እና ንጥፈቶች የፑሽ ማሳወቂያ ለመላክ</li>
+        <li>በአካባቢዎ ላይ ተመስርቶ ቅርብ ልጥፎችን ለማሳየት</li>
+        <li>የአገልግሎት ደንቦቻችንን ለማስከበርና ማጭበርበርን ለመከላከል</li>
+      </ul>
+
+      <h2>3. የሶስተኛ ወገን አገልግሎቶች</h2>
+      <p>መተግበሪያውን ለማስኬድ የሚከተሉትን የሶስተኛ ወገን አገልግሎቶች እንጠቀማለን:</p>
+      <ul>
+        <li><strong>Supabase:</strong> የዳታቤዝ ማስተናገጃ፣ ማረጋገጫ እና የፋይል ማከማቻ (በዩናይትድ ስቴትስ ይስተናገዳል)</li>
+        <li><strong>Stripe:</strong> ለገበያ ግብይቶች ክፍያ ማስኬጃ። የ Stripe ግላዊነት ፖሊሲ በ <a href="https://stripe.com/privacy">stripe.com/privacy</a> ይገኛል</li>
+        <li><strong>Expo:</strong> የመተግበሪያ ማድረስና ማሻሻያዎች</li>
+      </ul>
+      <p>የግል መረጃዎን ለሶስተኛ ወገኖች አንሸጥም።</p>
+
+      <h2>4. የመረጃ ማቆየት</h2>
+      <p>መለያዎ ንቁ እስከሆነ ድረስ የመለያ መረጃዎንና ይዘትዎን እናቆያለን። መለያዎን ሲሰርዙ የመገለጫ ውሂብዎን ስም-አልባ ያደርጋለንና ልጥፎችዎን እናስወግዳለን። አንዳንድ መረጃ በህግ ወይም ለህጋዊ የንግድ ዓላማዎች (ለምሳሌ የግብይት መዝገቦች) ሊቆይ ይችላል።</p>
+
+      <h2>5. መብቶችዎ</h2>
+      <p>የሚከተሉት መብቶች አልዎት:</p>
+      <ul>
+        <li><strong>ማግኘት:</strong> በመተግበሪያው የመገለጫ ቅንብሮች በኩል የግል ውሂብዎን ማግኘት</li>
+        <li><strong>ማሻሻል:</strong> በማንኛውም ጊዜ በመገለጫዎ ውስጥ መረጃዎን ማሻሻል</li>
+        <li><strong>መሰረዝ:</strong> በመተግበሪያው ቅንብሮች ውስጥ መለያዎንና ተዛማጅ ውሂብ መሰረዝ</li>
+        <li><strong>ማቋረጥ:</strong> በመሣሪያዎ ቅንብሮች ውስጥ የፑሽ ማሳወቂያዎች ማቋረጥ</li>
+        <li><strong>መሻር:</strong> በመሣሪያዎ ቅንብሮች ውስጥ የአካባቢ ፈቃዶች መሻር</li>
+      </ul>
+
+      <h2>6. የውሂብ ደህንነት</h2>
+      <p>ኢንክሪፕትድ የውሂብ ማስተላለፍ (TLS/SSL)፣ ደህንነቱ የተጠበቀ ማረጋገጫ እና የመዳረስ ቁጥጥሮች ጨምሮ ደረጃውን የጠበቀ የደህንነት እርምጃዎች እንጠቀማለን። ሆኖም ምንም ዓይነት የኤሌክትሮኒክ ማስተላለፍ ወይም ማከማቻ ዘዴ 100% ደህንነቱ የተጠበቀ አይደለም።</p>
+
+      <h2>7. የህጻናት ግላዊነት</h2>
+      <p>መተግበሪያው ከ13 ዓመት በታች ላሉ ህጻናት የታሰበ አይደለም። ከ13 ዓመት በታች ካሉ ህጻናት ሆን ብለን የግል መረጃ አንሰበስብም። ከ13 ዓመት በታች ካለ ህጻን መረጃ እንደሰበሰብን ካገኘን ወዲያውኑ እንሰርዘዋለን።</p>
+
+      <h2>8. የፖሊሲ ለውጦች</h2>
+      <p>ይህን የግላዊነት ፖሊሲ አልፎ አልፎ ልናሻሽል እንችላለን። ስለ ቁልፍ ለውጦች በመተግበሪያው ወይም በኢሜይል እናሳውቅዎታለን። ከለውጦች በኋላ መተግበሪያውን መጠቀም ማቀጠልዎ የተሻሻለውን ፖሊሲ መቀበልዎን ያመለክታል።</p>
+
+      <h2>9. ያግኙን</h2>
+      <p>ስለ ይህ የግላዊነት ፖሊሲ ወይም ውሂብዎ ጥያቄ ካለዎ ያግኙን:</p>
+      <p><strong>ኢሜይል:</strong> <a href="mailto:support@hamusmarket.com">support@hamusmarket.com</a></p>
+    </div>
+
+    <!-- TIGRINYA -->
+    <div id="content-ti" class="lang-content" lang="ti">
+      <h1>ፖሊሲ ምስጢራውነት</h1>
+      <p class="updated">ንመወዳእታ ግዜ ዝተሓደሰ: ለካቲት 25, 2026</p>
+
+      <p>ሓሙስ ("ንሕና" ወይ "ናትና") ናይ ሓሙስ ሞባይል መተግበሪ ("መተግበሪ") ይመሓድር። እዚ ፖሊሲ ምስጢራውነት ነቲ መተግበሪ ክትጥቀሙ ከለኹም ሓበሬታኹም ብኸመይ ከም ንእክብ፣ ንጥቀም፣ ነፍልጥን ንሕሉን የብርህ።</p>
+
+      <h2>1. ዝንእክቦ ሓበሬታ</h2>
+      <p><strong>ናይ መለያ ሓበሬታ:</strong> መለያ ክትፈጥሩ ከለኹም ስምኩም፣ ኢመይል ኣድራሻኹምን መሕለፊ ቃልኩምን ንእክብ። ብተወሳኺ ቁጽሪ ተሌፎን፣ ናይ መግለጺ ስእሊ፣ ብዛዕባኹም፣ ኣከባቢን ናይ ማሕበራዊ ሚድያ ሊንክታትን ክትህቡ ትኽእሉ።</p>
+      <p><strong>ናይ ልጥፍ ትሕዝቶ:</strong> ናይ ገበያ ልጥፋት ክትፈጥሩ ከለኹም ዝሃብኩሞ ስእልታት፣ መግለጺታት፣ ዋጋታትን ናይ ኣከባቢ ሓበሬታን ንእክብ።</p>
+      <p><strong>መልእኽትታት:</strong> ብናይ መተግበሪ መልእኽቲ ባህሪ ንኻልኦት ተጠቀምቲ ዝልእኩሞ መልእኽትታት ንታለሙዎም ተቐበልቲ ንምብጻሕ ንዕቅብ።</p>
+      <p><strong>ናይ መሳርሒ ሓበሬታ:</strong> ማሳወቕታታት ንምብጻሕን መተግበሪ ንምምሕያሽን ናይ ፑሽ ማሳወቕታ ቶከናት፣ ዓይነት መሳርሒን ስሪት ኦፐሬቲንግ ሲስተምን ክንእክብ ንኽእል።</p>
+      <p><strong>ናይ ኣከባቢ ዳታ:</strong> ብፍቓድኩም ቀረባ ልጥፋት ንምርኣይ ግምታዊ ኣከባቢኹም ንእክብ። ብዝኾነ ግዜ ኣብ ናይ መሳርሒኹም ቅንብራት ናይ ኣከባቢ ፍቓድ ከተጥፍኡ ትኽእሉ።</p>
+
+      <h2>2. ሓበሬታኹም ብኸመይ ንጥቀም</h2>
+      <ul>
+        <li>መለያኹም ንምፍጣርን ንምምሕዳርን</li>
+        <li>ናይ ገበያ ልጥፋትኩም ንኻልኦት ተጠቀምቲ ንምርኣይ</li>
+        <li>ኣብ መንጎ ገዛእትን ሸያጥትን ናይ መልእኽቲ ልውውጥ ንምምቻእ</li>
+        <li>ኣብ መንጎ ተጠቀምቲ ክፍሊታት ብ Stripe ንምስራሕ</li>
+        <li>ብዛዕባ መልእኽትታት፣ ልጥፋትን ንጥፈታትን ናይ ፑሽ ማሳወቕታ ንምልኣኽ</li>
+        <li>ኣብ ኣከባቢኹም ተመስሪቱ ቀረባ ልጥፋት ንምርኣይ</li>
+        <li>ውዕል ኣገልግሎትና ንምኽባርን ምትላል ንምክልኻልን</li>
+      </ul>
+
+      <h2>3. ናይ ሳልሳይ ወገን ኣገልግሎታት</h2>
+      <p>ነቲ መተግበሪ ንምስራሕ ነዞም ዝስዕቡ ናይ ሳልሳይ ወገን ኣገልግሎታት ንጥቀም:</p>
+      <ul>
+        <li><strong>Supabase:</strong> ናይ ዳታቤዝ ማስተናገዲ፣ ማረጋገጺን ናይ ፋይል ማኸዛንን (ኣብ ሕቡራት መንግስታት ኣመሪካ ይስተናገድ)</li>
+        <li><strong>Stripe:</strong> ንናይ ገበያ ግብይታት ክፍሊት ምስራሕ። ናይ Stripe ፖሊሲ ምስጢራውነት ኣብ <a href="https://stripe.com/privacy">stripe.com/privacy</a> ይርከብ</li>
+        <li><strong>Expo:</strong> ናይ መተግበሪ ምብጻሕን ምሕዳስን</li>
+      </ul>
+      <p>ናይ ውልቂ ሓበሬታኹም ንሳልሳይ ወገናት ኣይንሸጥን።</p>
+
+      <h2>4. ሓበሬታ ምዕቃብ</h2>
+      <p>መለያኹም ንጡፍ ክሳብ ዝኾነ ናይ መለያ ሓበሬታኹምን ትሕዝቶኹምን ንዕቅብ። መለያኹም ክትድምስሱ ከለኹም ናይ መግለጺ ዳታኹም ስም-ኣልቦ ንገብርን ልጥፋትኩም ነእልን። ገለ ሓበሬታ ብሕጊ ወይ ንሕጋዊ ናይ ንግዲ ዕላማ (ንኣብነት ናይ ግብይት መዝገባት) ክዕቀብ ይኽእል።</p>
+
+      <h2>5. መሰላትኩም</h2>
+      <p>ነዞም ዝስዕቡ መሰላት ኣለኩም:</p>
+      <ul>
+        <li><strong>ምርካብ:</strong> ብናይ መተግበሪ መግለጺ ቅንብራት ናይ ውልቂ ዳታኹም ምርካብ</li>
+        <li><strong>ምሕዳስ:</strong> ብዝኾነ ግዜ ኣብ መግለጺኹም ሓበሬታኹም ምሕዳስ</li>
+        <li><strong>ምድምሳስ:</strong> ኣብ ናይ መተግበሪ ቅንብራት መለያኹምን ዝተተሓሓዘ ዳታን ምድምሳስ</li>
+        <li><strong>ምቁራጽ:</strong> ኣብ ናይ መሳርሒኹም ቅንብራት ናይ ፑሽ ማሳወቕታታት ምቁራጽ</li>
+        <li><strong>ምስራዝ:</strong> ኣብ ናይ መሳርሒኹም ቅንብራት ናይ ኣከባቢ ፍቓዳት ምስራዝ</li>
+      </ul>
+
+      <h2>6. ድሕንነት ዳታ</h2>
+      <p>ኢንክሪፕትድ ናይ ዳታ ምስትልላፍ (TLS/SSL)፣ ድሕንነቱ ዝተሓለወ ማረጋገጺን ናይ ምብጻሕ ቁጽጽራትን ሓዊሱ ደረጃኡ ዝሓለወ ናይ ድሕንነት ስጉምትታት ንጥቀም። ይኹን እምበር ዝኾነ ናይ ኤሌክትሮኒክ ምስትልላፍ ወይ ማኸዛን ኣገባብ 100% ድሕንነቱ ዝተሓለወ ኣይኮነን።</p>
+
+      <h2>7. ናይ ህጻናት ምስጢራውነት</h2>
+      <p>እቲ መተግበሪ ትሕቲ 13 ዓመት ንዝኾኑ ህጻናት ዝተዳለወ ኣይኮነን። ካብ ትሕቲ 13 ዓመት ህጻናት ፈሊጥና ናይ ውልቂ ሓበሬታ ኣይንእክብን። ካብ ትሕቲ 13 ዓመት ቆልዓ ሓበሬታ ከም ዝኣከብና እንተ ፈሊጥና ብቕልጡፍ ክንድምስሶ ኢና።</p>
+
+      <h2>8. ናይ ፖሊሲ ለውጥታት</h2>
+      <p>ነዚ ፖሊሲ ምስጢራውነት ሓድሓደ ግዜ ከነሐድሶ ንኽእል ኢና። ብዛዕባ ኣገደስቲ ለውጥታት ብመተግበሪ ወይ ብኢመይል ከነፍልጠኩም ኢና። ድሕሪ ለውጥታት ነቲ መተግበሪ ምጥቃም ምቕጻልኩም ነቲ ዝተሓደሰ ፖሊሲ ተቐቢልኩሞ ማለት እዩ።</p>
+
+      <h2>9. ርኸቡና</h2>
+      <p>ብዛዕባ እዚ ፖሊሲ ምስጢራውነት ወይ ዳታኹም ሕቶ እንተ ኣለኩም ርኸቡና:</p>
+      <p><strong>ኢመይል:</strong> <a href="mailto:support@hamusmarket.com">support@hamusmarket.com</a></p>
+    </div>
   </div>
+
+  <script>
+    function switchLang(lang) {
+      document.querySelectorAll('.lang-content').forEach(function(el) { el.classList.remove('active'); });
+      document.querySelectorAll('.lang-btn').forEach(function(el) { el.classList.remove('active'); });
+      document.getElementById('content-' + lang).classList.add('active');
+      document.querySelector('[onclick="switchLang(\'' + lang + '\')"]').classList.add('active');
+      document.documentElement.lang = lang;
+      history.replaceState(null, '', '#' + lang);
+    }
+    // Auto-detect from hash
+    (function() {
+      var hash = window.location.hash.replace('#', '');
+      if (['en', 'am', 'ti'].indexOf(hash) !== -1) switchLang(hash);
+    })();
+  </script>
 </body>
 </html>

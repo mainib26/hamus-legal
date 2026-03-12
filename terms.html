@@ -4,11 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Terms of Service - Hamus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #111827; line-height: 1.7; background: #FAFAFA; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans Ethiopic', sans-serif; color: #111827; line-height: 1.7; background: #FAFAFA; }
     .container { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
-    .brand { color: #0D9488; font-size: 28px; font-weight: 700; margin-bottom: 4px; }
+    .top-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+    .brand { color: #0D9488; font-size: 28px; font-weight: 700; text-decoration: none; }
+    .lang-switcher { display: flex; gap: 6px; }
+    .lang-btn { padding: 4px 14px; border: 1px solid #D1D5DB; border-radius: 20px; background: white; color: #374151; font-size: 13px; font-family: inherit; cursor: pointer; transition: all 0.2s; }
+    .lang-btn:hover { border-color: #0D9488; color: #0D9488; }
+    .lang-btn.active { background: #0D9488; color: white; border-color: #0D9488; }
+    .lang-content { display: none; }
+    .lang-content.active { display: block; }
     h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
     .updated { color: #6B7280; font-size: 14px; margin-bottom: 32px; }
     h2 { font-size: 20px; font-weight: 600; margin-top: 32px; margin-bottom: 12px; color: #0F766E; }
@@ -19,72 +29,237 @@
 </head>
 <body>
   <div class="container">
-    <div class="brand">Hamus</div>
-    <h1>Terms of Service</h1>
-    <p class="updated">Last updated: February 25, 2026</p>
+    <div class="top-bar">
+      <a href="/" class="brand">Hamus</a>
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="switchLang('en')">English</button>
+        <button class="lang-btn" onclick="switchLang('am')">አማርኛ</button>
+        <button class="lang-btn" onclick="switchLang('ti')">ትግርኛ</button>
+      </div>
+    </div>
 
-    <p>Welcome to Hamus. By creating an account or using the Hamus mobile application (the "App"), you agree to these Terms of Service ("Terms"). Please read them carefully.</p>
+    <!-- ENGLISH -->
+    <div id="content-en" class="lang-content active" lang="en">
+      <h1>Terms of Service</h1>
+      <p class="updated">Last updated: February 25, 2026</p>
 
-    <h2>1. About Hamus</h2>
-    <p>Hamus is a local community marketplace connecting members of the Habesha diaspora. The App allows users to buy, sell, rent, and trade goods and services within their local community.</p>
+      <p>Welcome to Hamus. By creating an account or using the Hamus mobile application (the "App"), you agree to these Terms of Service ("Terms"). Please read them carefully.</p>
 
-    <h2>2. Eligibility</h2>
-    <p>You must be at least 18 years old to use the App. By creating an account, you represent that you are at least 18 years of age and have the legal capacity to agree to these Terms.</p>
+      <h2>1. About Hamus</h2>
+      <p>Hamus is a local community marketplace connecting members of the Habesha diaspora. The App allows users to buy, sell, rent, and trade goods and services within their local community.</p>
 
-    <h2>3. Your Account</h2>
-    <p>You are responsible for maintaining the security of your account credentials. You agree to provide accurate information and keep it up to date. You are responsible for all activity that occurs under your account.</p>
-    <p>You may delete your account at any time through the App's settings. Account deletion is permanent and cannot be undone.</p>
+      <h2>2. Eligibility</h2>
+      <p>You must be at least 18 years old to use the App. By creating an account, you represent that you are at least 18 years of age and have the legal capacity to agree to these Terms.</p>
 
-    <h2>4. Marketplace Rules</h2>
-    <p>When using the marketplace, you agree to:</p>
-    <ul>
-      <li>Provide accurate and honest descriptions of items and services</li>
-      <li>Not list illegal, stolen, counterfeit, or prohibited items</li>
-      <li>Not post misleading or fraudulent listings</li>
-      <li>Honor commitments made to other users</li>
-      <li>Communicate respectfully with other users</li>
-      <li>Not use the App for spam, scams, or harassment</li>
-    </ul>
+      <h2>3. Your Account</h2>
+      <p>You are responsible for maintaining the security of your account credentials. You agree to provide accurate information and keep it up to date. You are responsible for all activity that occurs under your account.</p>
+      <p>You may delete your account at any time through the App's settings. Account deletion is permanent and cannot be undone.</p>
 
-    <h2>5. Prohibited Content</h2>
-    <p>You may not post content that:</p>
-    <ul>
-      <li>Is illegal, harmful, threatening, abusive, or harassing</li>
-      <li>Contains hate speech or discriminatory language</li>
-      <li>Is sexually explicit or exploitative</li>
-      <li>Infringes on intellectual property rights</li>
-      <li>Contains malware or phishing attempts</li>
-      <li>Violates any applicable law or regulation</li>
-    </ul>
+      <h2>4. Marketplace Rules</h2>
+      <p>When using the marketplace, you agree to:</p>
+      <ul>
+        <li>Provide accurate and honest descriptions of items and services</li>
+        <li>Not list illegal, stolen, counterfeit, or prohibited items</li>
+        <li>Not post misleading or fraudulent listings</li>
+        <li>Honor commitments made to other users</li>
+        <li>Communicate respectfully with other users</li>
+        <li>Not use the App for spam, scams, or harassment</li>
+      </ul>
 
-    <h2>6. Transactions</h2>
-    <p>Hamus facilitates connections between buyers and sellers but is not a party to transactions. We are not responsible for the quality, safety, or legality of items listed. Payments are processed through Stripe. By using payment features, you also agree to <a href="https://stripe.com/legal">Stripe's Terms of Service</a>.</p>
-    <p>Disputes between buyers and sellers should be resolved between the parties. Hamus may assist but is not obligated to mediate disputes.</p>
+      <h2>5. Prohibited Content</h2>
+      <p>You may not post content that:</p>
+      <ul>
+        <li>Is illegal, harmful, threatening, abusive, or harassing</li>
+        <li>Contains hate speech or discriminatory language</li>
+        <li>Is sexually explicit or exploitative</li>
+        <li>Infringes on intellectual property rights</li>
+        <li>Contains malware or phishing attempts</li>
+        <li>Violates any applicable law or regulation</li>
+      </ul>
 
-    <h2>7. Content Ownership</h2>
-    <p>You retain ownership of content you post (photos, descriptions, etc.). By posting content, you grant Hamus a non-exclusive, worldwide license to display, distribute, and promote your content within the App and for marketing purposes.</p>
+      <h2>6. Transactions</h2>
+      <p>Hamus facilitates connections between buyers and sellers but is not a party to transactions. We are not responsible for the quality, safety, or legality of items listed. Payments are processed through Stripe. By using payment features, you also agree to <a href="https://stripe.com/legal">Stripe's Terms of Service</a>.</p>
+      <p>Disputes between buyers and sellers should be resolved between the parties. Hamus may assist but is not obligated to mediate disputes.</p>
 
-    <h2>8. Reporting and Moderation</h2>
-    <p>Users can report listings and other users that violate these Terms. We reserve the right to remove content and suspend or terminate accounts that violate these Terms, at our sole discretion.</p>
+      <h2>7. Content Ownership</h2>
+      <p>You retain ownership of content you post (photos, descriptions, etc.). By posting content, you grant Hamus a non-exclusive, worldwide license to display, distribute, and promote your content within the App and for marketing purposes.</p>
 
-    <h2>9. Limitation of Liability</h2>
-    <p>The App is provided "as is" without warranties of any kind. Hamus is not liable for any damages arising from your use of the App, including but not limited to losses from transactions, unauthorized access to your account, or service interruptions.</p>
+      <h2>8. Reporting and Moderation</h2>
+      <p>Users can report listings and other users that violate these Terms. We reserve the right to remove content and suspend or terminate accounts that violate these Terms, at our sole discretion.</p>
 
-    <h2>10. Indemnification</h2>
-    <p>You agree to indemnify and hold harmless Hamus and its operators from any claims, damages, or expenses arising from your use of the App or violation of these Terms.</p>
+      <h2>9. Limitation of Liability</h2>
+      <p>The App is provided "as is" without warranties of any kind. Hamus is not liable for any damages arising from your use of the App, including but not limited to losses from transactions, unauthorized access to your account, or service interruptions.</p>
 
-    <h2>11. Changes to Terms</h2>
-    <p>We may update these Terms from time to time. We will notify you of material changes through the App. Your continued use of the App after changes constitutes acceptance of the updated Terms.</p>
+      <h2>10. Indemnification</h2>
+      <p>You agree to indemnify and hold harmless Hamus and its operators from any claims, damages, or expenses arising from your use of the App or violation of these Terms.</p>
 
-    <h2>12. Termination</h2>
-    <p>We may suspend or terminate your account at any time for violations of these Terms. You may stop using the App and delete your account at any time.</p>
+      <h2>11. Changes to Terms</h2>
+      <p>We may update these Terms from time to time. We will notify you of material changes through the App. Your continued use of the App after changes constitutes acceptance of the updated Terms.</p>
 
-    <h2>13. Governing Law</h2>
-    <p>These Terms are governed by the laws of the State of Texas, United States, without regard to conflict of law principles.</p>
+      <h2>12. Termination</h2>
+      <p>We may suspend or terminate your account at any time for violations of these Terms. You may stop using the App and delete your account at any time.</p>
 
-    <h2>14. Contact Us</h2>
-    <p>If you have questions about these Terms, contact us at:</p>
-    <p><strong>Email:</strong> <a href="mailto:support@hamusmarket.com">support@hamusmarket.com</a></p>
+      <h2>13. Governing Law</h2>
+      <p>These Terms are governed by the laws of the State of Texas, United States, without regard to conflict of law principles.</p>
+
+      <h2>14. Contact Us</h2>
+      <p>If you have questions about these Terms, contact us at:</p>
+      <p><strong>Email:</strong> <a href="mailto:support@hamusmarket.com">support@hamusmarket.com</a></p>
+    </div>
+
+    <!-- AMHARIC -->
+    <div id="content-am" class="lang-content" lang="am">
+      <h1>የአገልግሎት ደንቦች</h1>
+      <p class="updated">መጨረሻ የተሻሻለው: የካቲት 25, 2026</p>
+
+      <p>ወደ ሐሙስ እንኳን በደህና መጡ። መለያ በመፍጠር ወይም የሐሙስ ሞባይል መተግበሪያውን ("መተግበሪያ") በመጠቀም እነዚህን የአገልግሎት ደንቦች ("ደንቦች") ተቀብለዋል። እባክዎ በጥንቃቄ ያንብቧቸው።</p>
+
+      <h2>1. ስለ ሐሙስ</h2>
+      <p>ሐሙስ የሐበሻ ዳያስፖራ አባላትን የሚያገናኝ የአካባቢ የማህበረሰብ ገበያ ነው። መተግበሪያው ተጠቃሚዎች በአካባቢያቸው ማህበረሰብ ውስጥ እቃዎችንና አገልግሎቶችን እንዲገዙ፣ እንዲሸጡ፣ እንዲያከራዩ እና እንዲለዋወጡ ያስችላቸዋል።</p>
+
+      <h2>2. ብቁነት</h2>
+      <p>መተግበሪያውን ለመጠቀም ቢያንስ 18 ዓመት መሞላት አለብዎ። መለያ በመፍጠር ቢያንስ 18 ዓመት መሆንዎንና እነዚህን ደንቦች ለመቀበል ህጋዊ ብቃት ያለዎት መሆኑን ያረጋግጣሉ።</p>
+
+      <h2>3. የእርስዎ መለያ</h2>
+      <p>የመለያዎን ምስጢራዊ መረጃ ደህንነት መጠበቅ የእርስዎ ኃላፊነት ነው። ትክክለኛ መረጃ ለማቅረብና ወቅታዊ ለማድረግ ይስማማሉ። በመለያዎ ስር የሚከናወን ማንኛውም ተግባር የእርስዎ ኃላፊነት ነው።</p>
+      <p>መለያዎን በማንኛውም ጊዜ በመተግበሪያው ቅንብሮች ውስጥ መሰረዝ ይችላሉ። መለያ መሰረዝ ቋሚ ነው፤ ወደ ነበረበት ሊመለስ አይችልም።</p>
+
+      <h2>4. የገበያ ህጎች</h2>
+      <p>ገበያውን ሲጠቀሙ የሚከተሉትን ይቀበላሉ:</p>
+      <ul>
+        <li>ስለ እቃዎችና አገልግሎቶች ትክክለኛና ሐቀኛ መግለጫ መስጠት</li>
+        <li>ህገ-ወጥ፣ የተሰረቁ፣ የተኮረጁ ወይም የተከለከሉ እቃዎችን አለመዘርዘር</li>
+        <li>አሳሳች ወይም አጭበርባሪ ልጥፎችን አለመለጠፍ</li>
+        <li>ለሌሎች ተጠቃሚዎች የገቡትን ቃል ማክበር</li>
+        <li>ከሌሎች ተጠቃሚዎች ጋር በአክብሮት መነጋገር</li>
+        <li>መተግበሪያውን ለስፓም፣ ለማጭበርበር ወይም ለማስፈራራት አለመጠቀም</li>
+      </ul>
+
+      <h2>5. የተከለከለ ይዘት</h2>
+      <p>የሚከተሉትን ይዘቶች መለጠፍ አይፈቀድም:</p>
+      <ul>
+        <li>ህገ-ወጥ፣ ጎጂ፣ አስፈራሪ፣ አሳዳጅ ወይም አስጨናቂ</li>
+        <li>የጥላቻ ንግግር ወይም አድሎአዊ ቋንቋ የያዘ</li>
+        <li>ግልጽ ወሲባዊ ወይም ብዝበዛ የሆነ</li>
+        <li>የአእምሯዊ ንብረት መብቶችን የሚጥስ</li>
+        <li>ማልዌር ወይም የማስገር ሙከራ የያዘ</li>
+        <li>ማንኛውንም ተፈጻሚ ህግ ወይም ደንብ የሚጥስ</li>
+      </ul>
+
+      <h2>6. ግብይቶች</h2>
+      <p>ሐሙስ ገዢዎችንና ሻጮችን ያገናኛል ነገር ግን በግብይቶች ውስጥ ተሳታፊ አይደለም። ለተዘረዘሩ እቃዎች ጥራት፣ ደህንነት ወይም ህጋዊነት ኃላፊ አይደለንም። ክፍያዎች በ Stripe ይከናወናሉ። የክፍያ ባህሪያትን በመጠቀም <a href="https://stripe.com/legal">የ Stripe አገልግሎት ደንቦችን</a>ም ይቀበላሉ።</p>
+      <p>በገዢዎችና ሻጮች መካከል የሚነሱ አለመግባባቶች በራሳቸው መፈታት አለባቸው። ሐሙስ ሊያግዝ ይችላል ነገር ግን አለመግባባቶችን ለመፍታት ግዴታ የለበትም።</p>
+
+      <h2>7. የይዘት ባለቤትነት</h2>
+      <p>የሚለጥፉት ይዘት (ፎቶዎች፣ መግለጫዎች ወዘተ) ባለቤትነት የእርስዎ ነው። ይዘት በመለጠፍ ይዘትዎን በመተግበሪያው ውስጥና ለገበያ ዓላማ ለማሳየት፣ ለማሰራጨትና ለማስተዋወቅ ለሐሙስ ብቸኛ ያልሆነ ዓለም-አቀፍ ፈቃድ ይሰጣሉ።</p>
+
+      <h2>8. ሪፖርት ማድረግና ቁጥጥር</h2>
+      <p>ተጠቃሚዎች እነዚህን ደንቦች የሚጥሱ ልጥፎችንና ተጠቃሚዎችን ሪፖርት ማድረግ ይችላሉ። እነዚህን ደንቦች የሚጥሱ ይዘቶችን ለማስወገድና መለያዎችን ለማገድ ወይም ለማቋረጥ መብቱ ለሐሙስ ብቻ ነው።</p>
+
+      <h2>9. የተጠያቂነት ገደብ</h2>
+      <p>መተግበሪያው "ባለበት ሁኔታ" ያለ ምንም ዓይነት ዋስትና ይቀርባል። ሐሙስ ከግብይት ኪሳራ፣ ያልተፈቀደ የመለያ አጠቃቀም ወይም የአገልግሎት መቋረጥ ጨምሮ መተግበሪያውን ከመጠቀምዎ ለሚነሱ ጉዳቶች ኃላፊ አይደለም።</p>
+
+      <h2>10. ማስከበር</h2>
+      <p>መተግበሪያውን ከመጠቀምዎ ወይም እነዚህን ደንቦች ከመጣስዎ የሚነሱ ማናቸውንም ክሶች፣ ጉዳቶች ወይም ወጪዎች ሐሙስንና አንቀሳቃሾቹን ከተጠያቂነት ነጻ ማድረግ ይስማማሉ።</p>
+
+      <h2>11. የደንቦች ለውጦች</h2>
+      <p>እነዚህን ደንቦች አልፎ አልፎ ልናሻሽል እንችላለን። ስለ ቁልፍ ለውጦች በመተግበሪያው በኩል እናሳውቅዎታለን። ከለውጦች በኋላ መተግበሪያውን መጠቀም ማስቀጠልዎ የተሻሻሉ ደንቦችን መቀበልዎን ያመለክታል።</p>
+
+      <h2>12. ማቋረጥ</h2>
+      <p>እነዚህን ደንቦች ስለመጣስ መለያዎን በማንኛውም ጊዜ ልናግድ ወይም ልናቋርጥ እንችላለን። መተግበሪያውን መጠቀም ማቆምና መለያዎን መሰረዝ በማንኛውም ጊዜ ይችላሉ።</p>
+
+      <h2>13. ተፈጻሚ ህግ</h2>
+      <p>እነዚህ ደንቦች ያለ ህግ ግጭት መርሆዎች ግምት ውስጥ ማስገባት በዩናይትድ ስቴትስ የቴክሳስ ግዛት ህጎች ይተዳደራሉ።</p>
+
+      <h2>14. ያግኙን</h2>
+      <p>ስለ እነዚህ ደንቦች ጥያቄ ካለዎ ያግኙን:</p>
+      <p><strong>ኢሜይል:</strong> <a href="mailto:support@hamusmarket.com">support@hamusmarket.com</a></p>
+    </div>
+
+    <!-- TIGRINYA -->
+    <div id="content-ti" class="lang-content" lang="ti">
+      <h1>ውዕል ኣገልግሎት</h1>
+      <p class="updated">ንመወዳእታ ግዜ ዝተሓደሰ: ለካቲት 25, 2026</p>
+
+      <p>ናብ ሓሙስ እንቋዕ ብደሓን መጻእኩም። መለያ ብምፍጣር ወይ ናይ ሓሙስ ሞባይል መተግበሪ ("መተግበሪ") ብምጥቃም ነዚ ውዕል ኣገልግሎት ("ውዕል") ተቐቢልኩሞ ኣለኹም። በጃኹም ብጥንቃቐ ኣንብቡዎ።</p>
+
+      <h2>1. ብዛዕባ ሓሙስ</h2>
+      <p>ሓሙስ ኣባላት ናይ ሓበሻ ዳያስፖራ ዘራኽብ ናይ ኣከባቢ ማሕበረሰብ ገበያ እዩ። እቲ መተግበሪ ተጠቀምቲ ኣብ ኣከባቢ ማሕበረሰቦም ኣቑሑትን ኣገልግሎታትን ክገዝኡ፣ ክሸጡ፣ ከካርዩን ክልዋወጡን የኽእሎም።</p>
+
+      <h2>2. ብቕዓት</h2>
+      <p>ነዚ መተግበሪ ንምጥቃም ብውሑዱ 18 ዓመት ክትመልኡ ኣለኩም። መለያ ብምፍጣር ብውሑዱ 18 ዓመት ምዃንኩምን ነዚ ውዕል ንምቕባል ሕጋዊ ብቕዓት ከም ዘለኩምን ተረጋግጹ።</p>
+
+      <h2>3. መለያኹም</h2>
+      <p>ድሕንነት ናይ መለያኹም ምስጢራዊ ሓበሬታ ምሕላው ናትኩም ሓላፍነት እዩ። ልክዕ ሓበሬታ ክትህቡን ወቅታዊ ክትገብሩን ትሰማምዑ። ኣብ ትሕቲ መለያኹም ዝካየድ ኩሉ ንጥፈት ናትኩም ሓላፍነት እዩ።</p>
+      <p>መለያኹም ብዝኾነ ግዜ ኣብ ናይ መተግበሪ ቅንብራት ክትድምስሱ ትኽእሉ። ምድምሳስ መለያ ቀዋሚ እዩ፤ ክምለስ ኣይክእልን።</p>
+
+      <h2>4. ሕግታት ገበያ</h2>
+      <p>ነቲ ገበያ ክትጥቀሙ ከለኹም ነዚ ዝስዕብ ትሰማምዑ:</p>
+      <ul>
+        <li>ብዛዕባ ኣቑሑትን ኣገልግሎታትን ልክዕን ሓቀኛን መግለጺ ምሃብ</li>
+        <li>ዘይሕጋዊ፣ ዝተሰርቀ፣ ዝተኮርጀ ወይ ዝተኸልከለ ኣቑሑት ዘይምዝርዛር</li>
+        <li>ኣደናጋሪ ወይ ኣታላሊ ልጥፋት ዘይምልጣፍ</li>
+        <li>ንኻልኦት ተጠቀምቲ ዝኣተኹሞ ቃል ምኽባር</li>
+        <li>ምስ ካልኦት ተጠቀምቲ ብኣኽብሮት ምዝርራብ</li>
+        <li>ነቲ መተግበሪ ንስፓም፣ ምትላል ወይ ምፍርራሕ ዘይምጥቃም</li>
+      </ul>
+
+      <h2>5. ዝተኸልከለ ትሕዝቶ</h2>
+      <p>ከምዚ ዝስዕብ ትሕዝቶ ምልጣፍ ኣይፍቀድን:</p>
+      <ul>
+        <li>ዘይሕጋዊ፣ ጎዳኢ፣ ኣፈራሪሒ፣ ኣሳዳዲ ወይ ኣሸገርቲ</li>
+        <li>ናይ ጽልኢ ዘረባ ወይ ኣድልዎ ዘለዎ ቋንቋ ዝሓዘ</li>
+        <li>ግሉጽ ወሲባዊ ወይ ብዝበዛ ዝኾነ</li>
+        <li>መሰል ኣእምሮኣዊ ንብረት ዝጥሕስ</li>
+        <li>ማልዌር ወይ ናይ ምስሓብ ፈተነ ዝሓዘ</li>
+        <li>ዝኾነ ተፈጻሚ ሕጊ ወይ ደንቢ ዝጥሕስ</li>
+      </ul>
+
+      <h2>6. ግብይታት</h2>
+      <p>ሓሙስ ገዛእቲን ሸያጥትን ይራኸብ ግን ኣብ ግብይታት ተሳታፊ ኣይኮነን። ንጽሬት፣ ድሕንነት ወይ ሕጋውነት ናይ ዝተዘርዘሩ ኣቑሑት ሓላፊ ኣይኮንናን። ክፍሊታት ብ Stripe ይካየዱ። ናይ ክፍሊት ባህርያት ብምጥቃም <a href="https://stripe.com/legal">ናይ Stripe ውዕል ኣገልግሎት</a>ውን ትቕበሉ።</p>
+      <p>ኣብ መንጎ ገዛእቲን ሸያጥትን ዝለዓል ዘይምስምማዕ ባዕሎም ክፍትሑ ኣለዎም። ሓሙስ ክሕግዝ ይኽእል ግን ዘይምስምማዕ ንምፍታሕ ግዴታ የብሉን።</p>
+
+      <h2>7. ባለቤትነት ትሕዝቶ</h2>
+      <p>ዝለጠፍኩሞ ትሕዝቶ (ስእልታት፣ መግለጺታት ወዘተ) ባለቤትነቱ ናትኩም እዩ። ትሕዝቶ ብምልጣፍ ኣብ መተግበሪን ንዕዳጋ ዕላማን ንምርኣይ፣ ንምዝርጋሕን ንምስፍሕፋሕን ንሓሙስ ብቐዳምነት ዘይኮነ ኣህጉራዊ ፍቓድ ትህቡ።</p>
+
+      <h2>8. ሪፖርት ምግባርን ቁጽጽርን</h2>
+      <p>ተጠቀምቲ ነዚ ውዕል ዝጥሕሱ ልጥፋትን ተጠቀምትን ሪፖርት ክገብሩ ይኽእሉ። ነዚ ውዕል ዝጥሕሱ ትሕዝቶታት ንምእላይን መለያታት ንምእጋድ ወይ ንምቁራጽን መሰል ንሓሙስ ጥራይ እዩ።</p>
+
+      <h2>9. ናይ ተሓታትነት ደረት</h2>
+      <p>እቲ መተግበሪ "ከም ዘሎ" ብዘይ ዝኾነ ውሕስነት ይቐርብ። ሓሙስ ካብ ግብይት ክሳራ፣ ዘይተፈቕደ ናይ መለያ ኣጠቃቕማ ወይ ናይ ኣገልግሎት ምቁራጽ ሓዊሱ ነቲ መተግበሪ ካብ ምጥቃምኩም ዝለዓል ጉድኣት ሓላፊ ኣይኮነን።</p>
+
+      <h2>10. ምኽባር</h2>
+      <p>ነቲ መተግበሪ ካብ ምጥቃምኩም ወይ ነዚ ውዕል ካብ ምጥሓስኩም ዝለዓል ዝኾነ ክሲ፣ ጉድኣት ወይ ወጻኢ ንሓሙስን ኣንቀሳቐስቱን ካብ ተሓታትነት ነጻ ክትገብሩ ትሰማምዑ።</p>
+
+      <h2>11. ለውጥታት ናይ ውዕል</h2>
+      <p>ነዚ ውዕል ሓድሓደ ግዜ ከነሐድሶ ንኽእል ኢና። ብዛዕባ ኣገደስቲ ለውጥታት ብመተግበሪ ከነፍልጠኩም ኢና። ድሕሪ ለውጥታት ነቲ መተግበሪ ምጥቃም ምቕጻልኩም ነቲ ዝተሓደሰ ውዕል ተቐቢልኩሞ ማለት እዩ።</p>
+
+      <h2>12. ምቁራጽ</h2>
+      <p>ነዚ ውዕል ምስ ምጥሓስ መለያኹም ብዝኾነ ግዜ ክንእግድ ወይ ክንቆርጽ ንኽእል ኢና። ነቲ መተግበሪ ምጥቃም ከተቋርጹን መለያኹም ክትድምስሱን ብዝኾነ ግዜ ትኽእሉ።</p>
+
+      <h2>13. ተፈጻሚ ሕጊ</h2>
+      <p>እዚ ውዕል ብዘይ ናይ ሕጊ ግርጭት መትከላት ግምት ብሕግታት ናይ ቴክሳስ ግዝኣት፣ ሕቡራት መንግስታት ኣመሪካ ይመሓደር።</p>
+
+      <h2>14. ርኸቡና</h2>
+      <p>ብዛዕባ እዚ ውዕል ሕቶ እንተ ኣለኩም ርኸቡና:</p>
+      <p><strong>ኢመይል:</strong> <a href="mailto:support@hamusmarket.com">support@hamusmarket.com</a></p>
+    </div>
   </div>
+
+  <script>
+    function switchLang(lang) {
+      document.querySelectorAll('.lang-content').forEach(function(el) { el.classList.remove('active'); });
+      document.querySelectorAll('.lang-btn').forEach(function(el) { el.classList.remove('active'); });
+      document.getElementById('content-' + lang).classList.add('active');
+      document.querySelector('[onclick="switchLang(\'' + lang + '\')"]').classList.add('active');
+      document.documentElement.lang = lang;
+      history.replaceState(null, '', '#' + lang);
+    }
+    // Auto-detect from hash
+    (function() {
+      var hash = window.location.hash.replace('#', '');
+      if (['en', 'am', 'ti'].indexOf(hash) !== -1) switchLang(hash);
+    })();
+  </script>
 </body>
 </html>
